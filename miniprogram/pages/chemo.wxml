@@ -1,0 +1,146 @@
+<!--pages/chemo/chemo.wxml-->
+<view class="container">
+  <!-- 标题 -->
+  <view class="header">
+    <text class="title">💊 化疗剂量计算器</text>
+  </view>
+
+  <!-- 患者信息卡片 -->
+  <view class="card">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>患者信息</text>
+    </view>
+    
+    <view class="input-row">
+      <view class="input-item">
+        <text class="label">身高 (cm)</text>
+        <input type="digit" placeholder="170" value="{{height}}" bindinput="onHeightInput"/>
+      </view>
+      <view class="input-item">
+        <text class="label">体重 (kg)</text>
+        <input type="digit" placeholder="65" value="{{weight}}" bindinput="onWeightInput"/>
+      </view>
+    </view>
+    
+    <view class="bsa-display">
+      <text class="bsa-label">体表面积 (BSA)</text>
+      <text class="bsa-value">{{bsa}}</text>
+      <text class="bsa-unit">m²</text>
+    </view>
+  </view>
+
+  <!-- 方案选择卡片 -->
+  <view class="card">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>化疗方案</text>
+    </view>
+    
+    <view class="picker-item">
+      <text class="label">癌种</text>
+      <picker bindchange="onCancerChange" value="{{selectedCancerIndex}}" range="{{cancerTypes}}" range-key="name">
+        <view class="picker-value {{selectedCancer ? '' : 'placeholder'}}">
+          {{selectedCancer.name || '请选择癌种'}}
+        </view>
+      </picker>
+    </view>
+    
+    <view class="picker-item">
+      <text class="label">方案</text>
+      <picker bindchange="onRegimenChange" value="{{selectedRegimenIndex}}" range="{{regimenList}}" range-key="name" disabled="{{!selectedCancer}}">
+        <view class="picker-value {{selectedRegimen ? '' : 'placeholder'}}">
+          {{selectedRegimen.name || '请先选择癌种'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 计算按钮 -->
+  <button class="btn-primary" bindtap="calculate">计算剂量</button>
+
+  <!-- 卡铂计算器 -->
+  <view class="card">
+    <view class="section-title">
+      <view class="title-bar green"></view>
+      <text>卡铂剂量计算器 (Calvert公式)</text>
+    </view>
+    
+    <view class="input-row">
+      <view class="input-item">
+        <text class="label">年龄 (岁)</text>
+        <input type="digit" placeholder="50" value="{{age}}" bindinput="onAgeInput"/>
+      </view>
+      <view class="input-item">
+        <text class="label">性别</text>
+        <picker bindchange="onGenderChange" value="{{gender}}" range="{{genderOptions}}">
+          <view class="picker-value small">{{genderOptions[gender]}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <view class="input-row">
+      <view class="input-item">
+        <text class="label">血肌酐 (μmol/L)</text>
+        <input type="digit" placeholder="70" value="{{creatinine}}" bindinput="onCreatinineInput"/>
+      </view>
+      <view class="input-item">
+        <text class="label">目标AUC</text>
+        <picker bindchange="onAUCChange" value="{{targetAUC}}" range="{{aucOptions}}">
+          <view class="picker-value small">{{aucOptions[targetAUC]}}</view>
+        </picker>
+      </view>
+    </view>
+    
+    <button class="btn-green" bindtap="calculateCarboplatin">计算卡铂剂量</button>
+    
+    <view class="carbo-result" wx:if="{{carboResult}}">
+      <text class="carbo-label">卡铂剂量</text>
+      <text class="carbo-value">{{carboResult.dose}}</text>
+      <text class="carbo-unit">mg</text>
+      <text class="carbo-gfr">估算GFR: {{carboResult.gfr}} mL/min</text>
+    </view>
+    
+    <view class="formula-note">
+      <text class="note-title">Calvert公式：</text>
+      <text class="note-text">剂量(mg) = AUC × (GFR + 25)</text>
+      <text class="note-text">GFR估算：Cockcroft-Gault公式，女性×0.85</text>
+    </view>
+  </view>
+
+  <!-- 计算结果 -->
+  <view class="card result-card" wx:if="{{showResult}}" id="result">
+    <view class="section-title">
+      <view class="title-bar"></view>
+      <text>计算结果</text>
+    </view>
+    
+    <view class="result-header">
+      <text class="regimen-name">{{resultData.name}}</text>
+      <text class="regimen-cycle">{{resultData.cycle}}</text>
+    </view>
+    
+    <view class="drug-list">
+      <view class="drug-item" wx:for="{{resultData.drugs}}" wx:key="name">
+        <view class="drug-name">{{item.name}}</view>
+        <view class="drug-dose-row">
+          <text class="standard-dose">{{item.standardDisplay}}</text>
+          <text class="calculated-dose">{{item.calculatedDose}}</text>
+        </view>
+        <view class="drug-schedule">{{item.schedule}}{{item.alt ? ' (' + item.alt + ')' : ''}}</view>
+        <view class="auc-tip" wx:if="{{item.isAUC}}">👆 请使用上方卡铂计算器</view>
+      </view>
+    </view>
+    
+    <view class="notes-box">
+      <view class="notes-title">📋 备注</view>
+      <text class="notes-content">{{resultData.notes}}</text>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer">
+    <text>仅供参考，实际用药请遵医嘱</text>
+    <text>v1.0 | 2026.01.12</text>
+  </view>
+</view>

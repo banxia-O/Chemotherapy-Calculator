@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">半夏的临床百宝箱</view>
+  <view class="top_tip">临床常用公式计算</view>
+</view>
