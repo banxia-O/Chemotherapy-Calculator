@@ -48,9 +48,9 @@
     
     <view class="picker-item">
       <text class="label">方案</text>
-      <picker bindchange="onRegimenChange" value="{{selectedRegimenIndex}}" range="{{regimenList}}" range-key="name" disabled="{{!selectedCancer}}">
+      <picker bindchange="onRegimenChange" value="{{selectedRegimenIndex}}" range="{{regimenList}}" range-key="pickerLabel" disabled="{{!selectedCancer}}">
         <view class="picker-value {{selectedRegimen ? '' : 'placeholder'}}">
-          {{selectedRegimen.name || '请先选择癌种'}}
+          {{selectedRegimen.pickerLabel || '请先选择癌种'}}
         </view>
       </picker>
     </view>
@@ -116,7 +116,10 @@
     </view>
     
     <view class="result-header">
-      <text class="regimen-name">{{resultData.name}}</text>
+      <view class="regimen-name-row">
+        <text class="setting-badge" wx:if="{{resultData.setting}}">{{resultData.setting}}</text>
+        <text class="regimen-name">{{resultData.name}}</text>
+      </view>
       <text class="regimen-cycle">{{resultData.cycle}}</text>
     </view>
     
@@ -141,6 +144,6 @@
   <!-- 底部 -->
   <view class="footer">
     <text>仅供参考，实际用药请参考最新版指南</text>
-    <text>v1.0 | 2026.01.12</text>
+    <text>v1.1 | 2026.06.04</text>
   </view>
 </view>
