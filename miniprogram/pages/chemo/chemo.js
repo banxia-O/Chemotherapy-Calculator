@@ -51,7 +51,16 @@ Page({
           { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
           { name: "顺铂", dose: 80, unit: "mg/m²", schedule: "第1天" }
         ],
-        notes: "复发转移性鼻咽癌一线首选GP+PD-1抑制剂"
+        notes: "复发转移性鼻咽癌一线首选GP+PD-1抑制剂；根治性放疗同期化疗用单药顺铂（100mg/m² q3w或40mg/m² qw）"
+      },
+      {
+        name: "PF方案（顺铂+5-FU）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "顺铂", dose: 80, unit: "mg/m²", schedule: "第1天", range: "80-100" },
+          { name: "5-FU", dose: 800, unit: "mg/m²/d", schedule: "持续静滴 第1-5天", range: "800-1000", totalDays: 5 }
+        ],
+        notes: "经典方案，目前已逐渐被GP方案替代"
       }
     ],
     head_neck: [
@@ -63,7 +72,16 @@ Page({
           { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天" },
           { name: "5-FU", dose: 750, unit: "mg/m²/d", schedule: "持续静滴 第1-5天", totalDays: 5 }
         ],
-        notes: "诱导化疗方案，骨髓抑制重，需G-CSF支持"
+        notes: "诱导化疗方案，常用于局部晚期降期后序贯放疗；骨髓抑制重，需G-CSF支持"
+      },
+      {
+        name: "PF方案（同期放化疗/姑息）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "顺铂", dose: 100, unit: "mg/m²", schedule: "第1天" },
+          { name: "5-FU", dose: 1000, unit: "mg/m²/d", schedule: "持续静滴 第1-4天", totalDays: 4 }
+        ],
+        notes: "同期放化疗常用单药顺铂100mg/m² q3w"
       }
     ],
     lung_adeno: [
@@ -74,13 +92,13 @@ Page({
           { name: "培美曲塞", dose: 500, unit: "mg/m²", schedule: "第1天" },
           { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
         ],
-        notes: "需预处理：叶酸、维生素B12、地塞米松"
+        notes: "需预处理：叶酸（化疗前7天开始口服至末次化疗后21天）、维生素B12（首次化疗前1周肌注，此后每3周期1次）、地塞米松（化疗前1天、当天、后1天）"
       },
       {
         name: "AP方案（白蛋白紫杉醇+铂类）",
         cycle: "21天为一周期",
         drugs: [
-          { name: "白蛋白结合型紫杉醇", dose: 260, unit: "mg/m²", schedule: "第1天" },
+          { name: "白蛋白结合型紫杉醇", dose: 260, unit: "mg/m²", schedule: "第1天", alt: "或130mg/m² d1,8" },
           { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
         ],
         notes: "无需抗过敏预处理"
@@ -91,10 +109,19 @@ Page({
         name: "GP方案（吉西他滨+铂类）",
         cycle: "21天为一周期",
         drugs: [
-          { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
+          { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天", range: "1000-1250" },
           { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
         ],
-        notes: "注意骨髓抑制，d8需复查血常规"
+        notes: "注意骨髓抑制，d8需复查血常规决定是否给药"
+      },
+      {
+        name: "TP方案（紫杉醇+铂类）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
+        ],
+        notes: "紫杉醇需抗过敏预处理（地塞米松+苯海拉明+H2受体拮抗剂）"
       }
     ],
     sclc: [
@@ -103,9 +130,9 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "依托泊苷", dose: 100, unit: "mg/m²", schedule: "第1-3天", totalDays: 3 },
-          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天" }
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或分d1-3给药，25mg/m²/d" }
         ],
-        notes: "局限期同步放化疗首选；广泛期推荐EP+PD-L1抑制剂"
+        notes: "局限期同步放化疗首选EP方案；广泛期目前一线推荐EP/EC+PD-L1抑制剂"
       },
       {
         name: "EC方案（依托泊苷+卡铂）",
@@ -122,10 +149,19 @@ Page({
         name: "TP方案（紫杉醇+顺铂）",
         cycle: "21天为一周期",
         drugs: [
-          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天", alt: "或多西他赛75mg/m²" },
           { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天" }
         ],
         notes: "食管鳞癌一线可联合PD-1抑制剂"
+      },
+      {
+        name: "PF方案（顺铂+5-FU）",
+        cycle: "21-28天为一周期",
+        drugs: [
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", range: "75-80" },
+          { name: "5-FU", dose: 800, unit: "mg/m²/d", schedule: "持续静滴 第1-4天", range: "800-1000", totalDays: 4 }
+        ],
+        notes: "经典方案"
       }
     ],
     breast: [
@@ -136,7 +172,7 @@ Page({
           { name: "多柔比星", dose: 60, unit: "mg/m²", schedule: "第1天" },
           { name: "环磷酰胺", dose: 600, unit: "mg/m²", schedule: "第1天" }
         ],
-        notes: "AC后序贯T；注意蒽环累积剂量心脏毒性"
+        notes: "AC后序贯T（多西他赛100mg/m² 或紫杉醇175mg/m² × 4周期）；蒽环类累积剂量注意心脏毒性（多柔比星终身<450-550mg/m²）"
       },
       {
         name: "TC方案（多西他赛+环磷酰胺）",
@@ -146,6 +182,15 @@ Page({
           { name: "环磷酰胺", dose: 600, unit: "mg/m²", schedule: "第1天" }
         ],
         notes: "蒽环类禁忌者的替代方案"
+      },
+      {
+        name: "白蛋白紫杉醇+帕博利珠单抗（三阴晚期）",
+        cycle: "28天为一周期",
+        drugs: [
+          { name: "白蛋白结合型紫杉醇", dose: 100, unit: "mg/m²", schedule: "第1、8、15天" },
+          { name: "帕博利珠单抗", dose: 200, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true }
+        ],
+        notes: "KEYNOTE-355研究；PD-L1 CPS≥10获益更明显"
       }
     ],
     gastric: [
@@ -156,16 +201,16 @@ Page({
           { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "第1天" },
           { name: "替吉奥（S-1）", dose: null, unit: "按BSA分档", schedule: "第1-14天口服 bid", isS1: true }
         ],
-        notes: "中国人群常用方案"
+        notes: "中国人群常用方案，替吉奥口服依从性好"
       },
       {
-        name: "XELOX方案",
+        name: "XELOX方案（奥沙利铂+卡培他滨）",
         cycle: "21天为一周期",
         drugs: [
           { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "第1天" },
           { name: "卡培他滨", dose: 1000, unit: "mg/m² bid", schedule: "第1-14天口服", isOral: true }
         ],
-        notes: "手足综合征常见"
+        notes: "卡培他滨肌酐清除率<50需减量；手足综合征常见"
       }
     ],
     liver: [
@@ -178,7 +223,7 @@ Page({
           { name: "5-FU 静推", dose: 400, unit: "mg/m²", schedule: "第1、2天", totalDays: 2 },
           { name: "5-FU 持续泵注", dose: 600, unit: "mg/m²", schedule: "22h静滴 第1、2天", totalDays: 2 }
         ],
-        notes: "目前一线首选靶向+免疫，化疗作为后线选择"
+        notes: "中国EACH研究证据；目前一线首选靶向+免疫（阿替利珠单抗+贝伐珠单抗等），化疗作为后线选择"
       }
     ],
     biliary: [
@@ -189,7 +234,16 @@ Page({
           { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
           { name: "顺铂", dose: 25, unit: "mg/m²", schedule: "第1、8天" }
         ],
-        notes: "ABC-02研究确立的标准方案"
+        notes: "ABC-02研究确立的标准方案；目前可联合PD-1抑制剂（TOPAZ-1研究）"
+      },
+      {
+        name: "GS方案（吉西他滨+替吉奥）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
+          { name: "替吉奥（S-1）", dose: null, unit: "按BSA分档", schedule: "第1-14天口服 bid", isS1: true }
+        ],
+        notes: "日本/中国常用替代方案"
       }
     ],
     pancreas: [
@@ -203,16 +257,16 @@ Page({
           { name: "5-FU 静推", dose: 400, unit: "mg/m²", schedule: "第1天" },
           { name: "5-FU 持续泵注", dose: 2400, unit: "mg/m²", schedule: "持续静滴46h" }
         ],
-        notes: "适用于PS 0-1、胆红素正常的患者；毒性大"
+        notes: "适用于PS 0-1、胆红素正常的患者；毒性大，可用改良版mFOLFIRINOX（伊立替康减至150mg/m²，去掉5-FU推注）"
       },
       {
-        name: "AG方案",
+        name: "AG方案（白蛋白紫杉醇+吉西他滨）",
         cycle: "28天为一周期",
         drugs: [
           { name: "白蛋白结合型紫杉醇", dose: 125, unit: "mg/m²", schedule: "第1、8、15天" },
           { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8、15天" }
         ],
-        notes: "耐受性优于FOLFIRINOX"
+        notes: "耐受性优于FOLFIRINOX，适用于PS稍差的患者"
       }
     ],
     colorectal: [
@@ -225,27 +279,36 @@ Page({
           { name: "5-FU 静推", dose: 400, unit: "mg/m²", schedule: "第1天" },
           { name: "5-FU 持续泵注", dose: 2400, unit: "mg/m²", schedule: "持续静滴46h" }
         ],
-        notes: "注意奥沙利铂累积剂量外周神经毒性"
+        notes: "奥沙利铂累积剂量注意外周神经毒性"
       },
       {
-        name: "CapeOX方案",
+        name: "CapeOX方案（XELOX）",
         cycle: "21天为一周期",
         drugs: [
           { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "第1天" },
           { name: "卡培他滨", dose: 1000, unit: "mg/m² bid", schedule: "第1-14天口服", isOral: true }
         ],
-        notes: "手足综合征常见"
+        notes: "卡培他滨肌酐清除率<50需减量；手足综合征常见"
       }
     ],
     bladder: [
       {
-        name: "GC方案",
+        name: "GC方案（吉西他滨+顺铂）",
         cycle: "21天为一周期",
         drugs: [
           { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
           { name: "顺铂", dose: 70, unit: "mg/m²", schedule: "第1天" }
         ],
-        notes: "顺铂适用条件：肌酐清除率≥60ml/min、PS 0-1"
+        notes: "顺铂适用条件：肌酐清除率≥60ml/min、PS 0-1、无严重听力损失/神经病变/心功能不全"
+      },
+      {
+        name: "GCarbo方案（顺铂不耐受）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "吉西他滨", dose: 1000, unit: "mg/m²", schedule: "第1、8天" },
+          { name: "卡铂", dose: null, unit: "AUC 5", schedule: "第1天", isAUC: true }
+        ],
+        notes: "顺铂不适合者的替代方案"
       }
     ],
     prostate: [
@@ -256,21 +319,21 @@ Page({
           { name: "多西他赛", dose: 75, unit: "mg/m²", schedule: "第1天" },
           { name: "泼尼松", dose: 5, unit: "mg bid（固定剂量）", schedule: "持续口服", isFixed: true }
         ],
-        notes: "mCRPC化疗标准方案"
+        notes: "mCRPC化疗标准方案；转移性激素敏感阶段现推荐ADT联合多西他赛±新型内分泌药物"
       }
     ],
     cervix: [
       {
-        name: "TP方案",
+        name: "TP方案（紫杉醇+顺铂）",
         cycle: "21天为一周期",
         drugs: [
-          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
-          { name: "顺铂", dose: 50, unit: "mg/m²", schedule: "第1天" }
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天", range: "135-175" },
+          { name: "顺铂", dose: 50, unit: "mg/m²", schedule: "第1天", range: "50-75" }
         ],
-        notes: "晚期可联合贝伐珠单抗及PD-1抑制剂"
+        notes: "晚期/复发宫颈癌可联合贝伐珠单抗（15mg/kg）及PD-1抑制剂"
       },
       {
-        name: "TC方案",
+        name: "TC方案（紫杉醇+卡铂）",
         cycle: "21天为一周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
@@ -281,48 +344,65 @@ Page({
     ],
     ovary: [
       {
-        name: "TC方案",
+        name: "TC方案（紫杉醇+卡铂）",
         cycle: "21天为一周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
           { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
         ],
-        notes: "上皮性卵巢癌术后标准一线方案"
+        notes: "上皮性卵巢癌术后标准一线方案；BRCA突变者维持治疗加用PARP抑制剂"
+      },
+      {
+        name: "剂量密集TC方案（dose-dense）",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "紫杉醇", dose: 80, unit: "mg/m²", schedule: "第1、8、15天" },
+          { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
+        ],
+        notes: "JGOG3016研究显示亚洲人群可能获益，但毒性增加"
       }
     ],
     endometrium: [
       {
-        name: "TC方案",
+        name: "TC方案（紫杉醇+卡铂）",
         cycle: "21天为一周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
           { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
         ],
-        notes: "可联合PD-1抑制剂（特别是dMMR/MSI-H患者）"
+        notes: "晚期/复发子宫内膜癌一线标准方案；可联合PD-1抑制剂（特别是dMMR/MSI-H患者）"
       }
     ],
     sarcoma: [
       {
-        name: "AI方案",
+        name: "AI方案（多柔比星+异环磷酰胺）",
         cycle: "21天为一周期",
         drugs: [
-          { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天" },
+          { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天（或25mg/m² d1-3）" },
           { name: "异环磷酰胺", dose: 2000, unit: "mg/m²", schedule: "第1-4天", totalDays: 4 },
           { name: "美司钠", dose: 2000, unit: "mg/m²", schedule: "等量IFO分次给予", totalDays: 4 }
         ],
         notes: "骨髓抑制及出血性膀胱炎风险高；需G-CSF支持"
+      },
+      {
+        name: "单药多柔比星",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天" }
+        ],
+        notes: "老年或PS稍差者可选单药；注意累积剂量心脏毒性"
       }
     ],
     osteosarcoma: [
       {
-        name: "MAP方案",
+        name: "MAP方案（新辅助/辅助）",
         cycle: "按具体疗程安排",
         drugs: [
-          { name: "甲氨蝶呤（高剂量）", dose: 12000, unit: "mg/m²", schedule: "需亚叶酸钙解救", isHDMTX: true },
-          { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天" },
-          { name: "顺铂", dose: 100, unit: "mg/m²", schedule: "单次或分次" }
+          { name: "甲氨蝶呤（高剂量）", dose: 12000, unit: "mg/m²", schedule: "需亚叶酸钙解救", range: "8000-12000", isHDMTX: true },
+          { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "（或25mg/m² d1-3）" },
+          { name: "顺铂", dose: 100, unit: "mg/m²", schedule: "单次或分次", range: "100-120" }
         ],
-        notes: "高剂量甲氨蝶呤需监测血药浓度、尿碱化、水化"
+        notes: "高剂量甲氨蝶呤需监测血药浓度、尿碱化、水化；骨肉瘤多见于青少年，需多学科协作"
       }
     ]
   },
