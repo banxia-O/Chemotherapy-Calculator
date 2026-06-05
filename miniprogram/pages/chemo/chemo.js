@@ -135,7 +135,7 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "培美曲塞", dose: 500, unit: "mg/m²", schedule: "第1天" },
-          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
         ],
         notes: "CSCO II级推荐（驱动基因阴性、PD-L1低表达、不适合免疫治疗时）。📌 培美曲塞需提前7天开始补充叶酸（400μg/d口服）和维生素B12（1000μg肌注q9w），减少骨髓抑制和黏膜毒性。可用卡铂AUC 5替代顺铂。 ｜ 给药：地塞米松预处理、补充叶酸和维生素B12、预防呕吐、充分水化；CrCl<60mL/min考虑卡铂替代"
       },
@@ -156,7 +156,7 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "白蛋白结合型紫杉醇", dose: 260, unit: "mg/m²", schedule: "第1天", alt: "或100mg/m² d1,8,15" },
-          { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
+          { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "📌 另有周剂量方案：白蛋白紫杉醇100 mg/m² d1,d8,d15 + 卡铂AUC 6 d1 q3w（CSCO同时收录，周方案血液学毒性可能更低但需多次输注）。CSCO II级推荐。 ｜ 给药：禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       },
@@ -187,7 +187,7 @@ Page({
         drugs: [
           { name: "纳武利尤单抗", dose: 360, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
           { name: "培美曲塞", dose: 500, unit: "mg/m²", schedule: "第1天" },
-          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
         ],
         notes: "CSCO I级推荐（1A类），基于CheckMate 816。📌 化疗方案需根据组织学选择：非鳞选培美曲塞+铂类，鳞癌选紫杉醇/白蛋白紫杉醇+卡铂。CSCO 2026版同时推荐帕博利珠单抗/替雷利珠单抗/度伐利尤单抗联合含铂化疗的围手术期方案（I级推荐）。 ｜ 给药：地塞米松预处理、补充叶酸和维生素B12、充分水化；CrCl<60mL/min考虑卡铂替代"
       }
@@ -209,7 +209,7 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "吉西他滨", dose: 1250, unit: "mg/m²", schedule: "第1、8天", range: "1000-1250" },
-          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
         ],
         notes: "CSCO II级推荐。📌 吉西他滨也可用1000 mg/m²（临床常用），二者均被认可。 ｜ 给药：预防呕吐、充分水化；CrCl<60mL/min考虑卡铂替代"
       },
@@ -275,9 +275,9 @@ Page({
         drugs: [
           { name: "度伐利尤单抗", dose: 1500, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
           { name: "依托泊苷", dose: 100, unit: "mg/m²", schedule: "第1-3天", totalDays: 3 },
-          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5-6" }
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
         ],
-        notes: "CSCO I级推荐（1A类，优选），基于CASPIAN。📌 也可联合卡铂（AUC 5-6 d1）替代顺铂。CSCO 2026版新增索卡佐利单抗+EC为I级推荐（基于ASTRUM-019）。 ｜ 给药：预防呕吐、充分水化；卡铂时溶媒用5% GS；CrCl<60mL/min考虑卡铂替代"
+        notes: "CSCO I级推荐（1A类，优选），基于CASPIAN。📌 也可联合卡铂（AUC 5 d1）替代顺铂。CSCO 2026版新增索卡佐利单抗+EC为I级推荐（基于ASTRUM-019）。 ｜ 给药：预防呕吐、充分水化；卡铂时溶媒用5% GS；CrCl<60mL/min考虑卡铂替代"
       },
       {
         name: "EC方案（依托泊苷+卡铂）",
@@ -285,7 +285,7 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "依托泊苷", dose: 100, unit: "mg/m²", schedule: "第1-3天", totalDays: 3 },
-          { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
+          { name: "卡铂", dose: null, unit: "AUC 5", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO II级推荐（不联合免疫时）。📌 CSCO 2026版明确：化疗+免疫已作为ES-SCLC一线'优选'推荐，单纯化疗地位下降，仅在免疫禁忌时选用。 ｜ 给药：预防呕吐；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       }
@@ -735,7 +735,7 @@ Page({
         cycle: "21天为一周期 × 6周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
-          { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
+          { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO I级推荐（1A类）。📌 标准一线方案不变。BRCA突变者化疗后序贯奥拉帕利维持（I级推荐）；HRD+者可用尼拉帕利/奥拉帕利维持。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       },
@@ -755,7 +755,7 @@ Page({
         cycle: "21天为一周期 × 3-4周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
-          { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
+          { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO I级推荐（IIIC-IV期无法达到满意减瘤时）。📌 新辅助3-4周期→间隔减瘤术（IDS）→术后补足至总共6周期。CHORUS/EORTC 55971研究支持。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       }
@@ -767,7 +767,7 @@ Page({
         cycle: "21天为一周期 × 6周期",
         drugs: [
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
-          { name: "卡铂", dose: null, unit: "AUC 5-6", schedule: "第1天", isAUC: true }
+          { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO I级推荐（1A类）。📌 适用于III-IV期术后辅助或复发晚期一线。GOG-209证实TC非劣效于TAP（多柔比星+顺铂+紫杉醇）且毒性更低。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       },
@@ -799,10 +799,9 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天（或25mg/m² d1-3）" },
-          { name: "异环磷酰胺", dose: 2500, unit: "mg/m²", schedule: "第1-4天", totalDays: 4 },
-          { name: "美司钠", dose: 2500, unit: "mg/m²", schedule: "等量IFO分次给予", totalDays: 4 }
+          { name: "异环磷酰胺", dose: 7000, unit: "mg/m²", schedule: "分次给药（常分3-4天）" }
         ],
-        notes: "CSCO II级推荐（需要高ORR时选用）。📌 AI方案ORR高于单药（约25-30% vs 15-20%），但OS无差异。适用于需要快速缩瘤（如肿瘤可能转化为可切除）的场景。出血性膀胱炎预防：美司钠必须足量+大量水化（尿量>100 mL/h）。 ｜ 给药：充分水化、G-CSF支持、预防出血性膀胱炎；多柔比星注意累积剂量上限；右丙亚胺(DZE)可预防心脏毒性"
+        notes: "CSCO II级推荐（需要高ORR时选用）。📌 AI方案ORR高于单药（约25-30% vs 15-20%），但OS无差异。适用于需要快速缩瘤（如肿瘤可能转化为可切除）的场景。出血性膀胱炎预防：美司钠必须足量+大量水化（尿量>100 mL/h）。 ｜ 给药：充分水化、G-CSF支持、预防出血性膀胱炎（美司钠剂量为异环磷酰胺的60%，分3次静脉注射：化疗同时、4h后、8h后）；多柔比星注意累积剂量上限；右丙亚胺(DZE)可预防心脏毒性"
       },
       {
         name: "AI方案（多柔比星+异环磷酰胺）",
@@ -810,10 +809,9 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "多柔比星", dose: 75, unit: "mg/m²", schedule: "第1天" },
-          { name: "异环磷酰胺", dose: 2500, unit: "mg/m²", schedule: "第1-4天", totalDays: 4 },
-          { name: "美司钠", dose: 2500, unit: "mg/m²", schedule: "等量IFO分次给予", totalDays: 4 }
+          { name: "异环磷酰胺", dose: 7000, unit: "mg/m²", schedule: "分次给药（常分3-4天）" }
         ],
-        notes: "CSCO II级推荐。📌 ISG-STS 1001研究（PMID: 28257659）支持表观标准化方案（epirubicin+ifosfamide）新辅助用于高危肢体STS。辅助化疗争议较大（SARCULATOR评分可辅助决策）。 ｜ 给药：充分水化、G-CSF支持、预防出血性膀胱炎；多柔比星注意累积剂量上限；右丙亚胺(DZE)可预防心脏毒性"
+        notes: "CSCO II级推荐。📌 ISG-STS 1001研究（PMID: 28257659）支持表观标准化方案（epirubicin+ifosfamide）新辅助用于高危肢体STS。辅助化疗争议较大（SARCULATOR评分可辅助决策）。 ｜ 给药：充分水化、G-CSF支持、预防出血性膀胱炎（美司钠剂量为异环磷酰胺的60%，分3次静脉注射：化疗同时、4h后、8h后）；多柔比星注意累积剂量上限；右丙亚胺(DZE)可预防心脏毒性"
       }
     ],
     osteosarcoma: [
