@@ -306,7 +306,7 @@ Page({
         setting: "新辅助化疗",
         cycle: "21天为一周期 × 2-4周期",
         drugs: [
-          { name: "紫杉醇", dose: 150, unit: "mg/m²", schedule: "第1天", alt: "或多西他赛75mg/m²" },
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天", alt: "或135mg/m²；或多西他赛75mg/m²" },
           { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或奈达铂" }
         ],
         notes: "CSCO II级推荐。📌 新辅助化疗（不含放疗）循证等级低于CROSS方案（新辅助放化疗），主要用于不适合放疗或拒绝放疗者。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；充分水化；CrCl<60mL/min考虑卡铂替代"
