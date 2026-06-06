@@ -611,14 +611,26 @@ Page({
         notes: "CSCO II级推荐。📌 FOLFOXIRI无5-FU推注。毒性显著高于双药方案（3-4级中性粒减少>50%），仅限ECOG 0-1、年龄<70岁、适合强烈治疗者。多联合贝伐珠单抗。 ｜ 给药：G-CSF支持、预防呕吐；奥沙利铂溶媒用5% GS；UGT1A1检测；关注胆碱能综合征及迟发性腹泻；深静脉置管，避光"
       },
       {
-        name: "CapeOX / FOLFOX",
+        name: "CapeOX方案（奥沙利铂+卡培他滨）",
         setting: "新辅助(直肠)",
-        cycle: "CapeOX 21天 / FOLFOX 14天",
+        cycle: "21天为一周期",
         drugs: [
-          { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "CapeOX第1天（FOLFOX 85）" },
+          { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "第1天" },
           { name: "卡培他滨", dose: 1000, unit: "mg/m² bid", schedule: "第1-14天口服", isOral: true }
         ],
-        notes: "CSCO II级推荐（TNT全程新辅助）。📌 TNT（total neoadjuvant therapy）策略：新辅助化疗+新辅助放化疗（或反序），pCR率可达30%以上。CSCO 2026版延续对TNT策略的认可。同期放化疗部分单独参照放疗章节（卡培他滨825 mg/m² bid或5-FU持续泵注同步放疗）。 ｜ 给药：同步放疗；奥沙利铂溶媒用5% GS"
+        notes: "CSCO II级推荐（TNT全程新辅助）。📌 TNT（total neoadjuvant therapy）策略：新辅助化疗+新辅助放化疗（或反序），pCR率可达30%以上。同期放化疗部分：卡培他滨825 mg/m² bid同步放疗。 ｜ 给药：预防呕吐；奥沙利铂溶媒用5% GS"
+      },
+      {
+        name: "mFOLFOX6方案",
+        setting: "新辅助(直肠)",
+        cycle: "14天为一周期",
+        drugs: [
+          { name: "奥沙利铂", dose: 85, unit: "mg/m²", schedule: "第1天" },
+          { name: "亚叶酸钙", dose: 400, unit: "mg/m²", schedule: "第1天" },
+          { name: "5-FU 静推", dose: 400, unit: "mg/m²", schedule: "第1天" },
+          { name: "5-FU 持续泵注", dose: 2400, unit: "mg/m²", schedule: "持续静滴46h" }
+        ],
+        notes: "CSCO II级推荐（TNT全程新辅助）。📌 TNT策略中mFOLFOX6与CapeOX均可选。同期放化疗部分：5-FU持续泵注同步放疗。 ｜ 给药：预防呕吐；奥沙利铂溶媒用5% GS；深静脉置管，避光"
       }
     ],
     bladder: [
