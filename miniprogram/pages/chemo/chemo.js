@@ -214,6 +214,16 @@ Page({
         notes: "CSCO II级推荐。📌 吉西他滨也可用1000 mg/m²（临床常用），二者均被认可。 ｜ 给药：预防呕吐、充分水化；CrCl<60mL/min考虑卡铂替代"
       },
       {
+        name: "TP方案（紫杉醇+顺铂）",
+        setting: "晚期一线",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
+          { name: "顺铂", dose: 75, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
+        ],
+        notes: "CSCO II级推荐。📌 经典含铂双药方案，紫杉醇175 mg/m² + 顺铂75 mg/m² q3w。顺铂不耐受者可用卡铂AUC 5替代。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；充分水化、预防呕吐；CrCl<60mL/min考虑卡铂替代"
+      },
+      {
         name: "紫杉醇 + 卡铂 + 帕博利珠单抗",
         setting: "晚期一线",
         cycle: "21天为一周期",
