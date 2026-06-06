@@ -229,7 +229,7 @@ Page({
         cycle: "21天为一周期",
         drugs: [
           { name: "帕博利珠单抗", dose: 200, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
-          { name: "紫杉醇", dose: 200, unit: "mg/m²", schedule: "第1天", alt: "或白蛋白紫杉醇100 d1,8,15" },
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天", alt: "或白蛋白紫杉醇100 d1,8,15" },
           { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO I级推荐（1A类），基于KEYNOTE-407。📌 也可用白蛋白紫杉醇100 mg/m² d1,d8,d15替代溶剂型紫杉醇（原研中两种紫杉醇均纳入）。CSCO 2026版同时推荐卡瑞利珠单抗/替雷利珠单抗/信迪利单抗/舒格利单抗等国产PD-1/PD-L1联合化疗为I级推荐。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
@@ -250,7 +250,7 @@ Page({
         cycle: "21天为一周期 × 3周期",
         drugs: [
           { name: "纳武利尤单抗", dose: 360, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
-          { name: "紫杉醇", dose: 200, unit: "mg/m²", schedule: "第1天" },
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
           { name: "卡铂", dose: null, unit: "AUC 6", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO I级推荐（1A类），基于CheckMate 816。📌 鳞癌不可用培美曲塞。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
