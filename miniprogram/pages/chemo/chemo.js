@@ -298,6 +298,16 @@ Page({
           { name: "卡铂", dose: null, unit: "AUC 5", schedule: "第1天", isAUC: true }
         ],
         notes: "CSCO II级推荐（不联合免疫时）。📌 CSCO 2026版明确：化疗+免疫已作为ES-SCLC一线'优选'推荐，单纯化疗地位下降，仅在免疫禁忌时选用。 ｜ 给药：预防呕吐；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
+      },
+      {
+        name: "IP方案（伊立替康+顺铂）",
+        setting: "二线",
+        cycle: "28天为一周期",
+        drugs: [
+          { name: "伊立替康", dose: 60, unit: "mg/m²", schedule: "第1、8、15天" },
+          { name: "顺铂", dose: 60, unit: "mg/m²", schedule: "第1天", alt: "或卡铂 AUC 5" }
+        ],
+        notes: "CSCO II级推荐。📌 用于敏感复发（一线结束>3个月复发）二线治疗，亦可作为一线EP的替代（JCOG 9511示IP优于EP）。SCLC进展快，复发后应尽早评估二线。伊立替康与UGT1A1多态性相关：*28 7/7纯合或*6 G/A杂合者需减量。难治性复发（≤3个月或一线期间进展）首选拓扑替康/芦比替定。 ｜ 给药：预防呕吐、充分水化；UGT1A1检测；关注胆碱能综合征及迟发性腹泻（洛哌丁胺处理）；CrCl<60mL/min考虑卡铂替代"
       }
     ],
     esophagus: [
