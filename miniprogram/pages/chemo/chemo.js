@@ -817,7 +817,7 @@ Page({
         notes: "CSCO I级推荐（1A类）。📌 适用于III-IV期术后辅助或复发晚期一线。GOG-209证实TC非劣效于TAP（多柔比星+顺铂+紫杉醇）且毒性更低。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       },
       {
-        name: "TC + 度伐利尤/帕博利珠单抗",
+        name: "TC + 帕博利珠单抗",
         setting: "晚期一线(联合免疫)",
         cycle: "21天为一周期",
         drugs: [
@@ -825,7 +825,18 @@ Page({
           { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
           { name: "卡铂", dose: null, unit: "AUC 5", schedule: "第1天", isAUC: true }
         ],
-        notes: "CSCO I级推荐（1A类）。📌 基于NRG-GY018（帕博利珠单抗，PMID: 37379154）和RUBY part 1（度伐利尤单抗，PMID: 37379158）。dMMR/MSI-H患者获益尤为显著（HR<0.30）；pMMR/MSS患者也有PFS获益。度伐利尤单抗1500mg q3w（联合期）→ q4w（维持期）。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
+        notes: "CSCO I级推荐（1A类），基于NRG-GY018（PMID: 37379154）。📌 dMMR/MSI-H患者获益尤为显著（HR<0.30）；pMMR/MSS患者也有PFS获益。帕博利珠单抗200mg q3w，化疗6周期后单药维持（最多至2年）。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
+      },
+      {
+        name: "TC + 度伐利尤单抗",
+        setting: "晚期一线(联合免疫)",
+        cycle: "21天为一周期",
+        drugs: [
+          { name: "度伐利尤单抗", dose: 1120, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
+          { name: "紫杉醇", dose: 175, unit: "mg/m²", schedule: "第1天" },
+          { name: "卡铂", dose: null, unit: "AUC 5", schedule: "第1天", isAUC: true }
+        ],
+        notes: "CSCO I级推荐（1A类），基于RUBY part 1（PMID: 37379158）。📌 dMMR/MSI-H患者获益尤为显著（HR<0.30）；pMMR/MSS患者也有PFS获益。度伐利尤单抗1120mg q3w（联合化疗期）→ 1500mg q4w（单药维持期）。 ｜ 给药：地塞米松预处理+胃黏膜保护剂，禁用PVC输液器；卡铂溶媒用5% GS；血小板<50×10⁹/L时IL-11/TPO支持"
       }
     ],
     sarcoma: [
