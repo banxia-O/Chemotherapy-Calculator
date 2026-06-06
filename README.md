@@ -1,17 +1,24 @@
-<<<<<<< HEAD
-# 云开发 quickstart
+# Chemotherapy-Calculator
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+化疗剂量计算器 | Chemotherapy Dose Calculator
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+基于 BSA（体表面积）和 Calvert 公式的化疗药物剂量计算微信小程序。
+
+覆盖 **19 个癌种、70+ 个一线化疗方案**（按 CSCO 指南，区分新辅助 / 根治性 / 术后辅助 / 晚期一线等治疗场景），支持卡铂 AUC 计算、S-1（替吉奥）分档给药、高剂量 MTX 警示。
+
+> ⚠️ 住院医自用，仅供参考。实际用药请以最新版指南及主管医师意见为准。
+
+## 功能
+
+- **BSA 计算**：Mosteller 公式 `√(身高×体重/3600)`
+- **方案剂量计算**：按癌种 → 方案选择，自动按 BSA 计算各药剂量
+- **卡铂剂量计算**：Calvert 公式 `剂量(mg) = AUC × (GFR + 25)`，GFR 采用 Cockcroft-Gault 估算（女性 ×0.85）
+- **特殊给药支持**：替吉奥（S-1）按 BSA 分档、口服药、固定剂量药、高剂量甲氨蝶呤警示
+
+## 技术栈
+
+微信小程序（云开发模板）。核心页面位于 `miniprogram/pages/chemo/`，所有化疗方案数据集中在 `chemo.js` 的 `regimens` 对象中，以癌种 `id` 为 key，便于扩展。
 
 ## 参考文档
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
-
-=======
-# Chemotherapy-Calculator
-化疗剂量计算器 | Chemotherapy Dose Calculator  基于 BSA（体表面积）和 Calvert 公式的化疗药物剂量计算工具。 覆盖 17 个癌种、25+ 常用化疗方案，支持卡铂 AUC 计算、S-1 分档给药、高剂量 MTX 警示。 住院医自用，仅供参考。
->>>>>>> e8fabccb80fd8e5b9493d95f089d11f7e6d73a86
