@@ -438,15 +438,28 @@ Page({
         notes: "CSCO I级推荐（1A类），基于CLASSIC研究（PMID: 22529255）。📌 卡培他滨需嘱患者餐后30分钟内口服，足量饮水；手足综合征为特征性不良反应。 ｜ 给药：预防呕吐；奥沙利铂溶媒用5% GS"
       },
       {
-        name: "SOX/FOLFOX + 纳武利尤单抗",
+        name: "SOX + 纳武利尤单抗",
         setting: "晚期一线",
-        cycle: "SOX 21天 / FOLFOX 14天",
+        cycle: "21天为一周期",
         drugs: [
-          { name: "纳武利尤单抗", dose: 360, unit: "mg（21天）/240mg（14天）", schedule: "第1天", isFixed: true },
-          { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "SOX第1天（FOLFOX 85）" },
+          { name: "纳武利尤单抗", dose: 360, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
+          { name: "奥沙利铂", dose: 130, unit: "mg/m²", schedule: "第1天" },
           { name: "替吉奥（S-1）", dose: null, unit: "按BSA分档", schedule: "第1-14天口服 bid", isS1: true }
         ],
-        notes: "CSCO I级推荐（1A类），基于CheckMate 649 / ATTRACTION-4。📌 CSCO 2026版更新：PD-L1检测升级为I级推荐（CPS≥5获益更显著）。HER2阳性者不选此方案，需加靶向抗HER2治疗。FOLFOX方案：奥沙利铂85 mg/m² d1 + LV 400 mg/m² d1 + 5-FU 400 mg/m² d1推注 + 5-FU 2400 mg/m² 46h泵注，q2w。 ｜ 给药：奥沙利铂溶媒用5% GS"
+        notes: "CSCO I级推荐（1A类），基于CheckMate 649 / ATTRACTION-4。📌 CSCO 2026版更新：PD-L1检测升级为I级推荐（CPS≥5获益更显著）。HER2阳性者不选此方案，需加靶向抗HER2治疗。纳武利尤单抗21天周期用360mg。 ｜ 给药：预防呕吐；奥沙利铂溶媒用5% GS"
+      },
+      {
+        name: "FOLFOX + 纳武利尤单抗",
+        setting: "晚期一线",
+        cycle: "14天为一周期",
+        drugs: [
+          { name: "纳武利尤单抗", dose: 240, unit: "mg（固定剂量）", schedule: "第1天", isFixed: true },
+          { name: "奥沙利铂", dose: 85, unit: "mg/m²", schedule: "第1天" },
+          { name: "亚叶酸钙", dose: 400, unit: "mg/m²", schedule: "第1天" },
+          { name: "5-FU 静推", dose: 400, unit: "mg/m²", schedule: "第1天" },
+          { name: "5-FU 持续泵注", dose: 2400, unit: "mg/m²", schedule: "持续静滴46h" }
+        ],
+        notes: "CSCO I级推荐（1A类），基于CheckMate 649。📌 CSCO 2026版更新：PD-L1检测升级为I级推荐（CPS≥5获益更显著）。HER2阳性者不选此方案，需加靶向抗HER2治疗。纳武利尤单抗14天周期用240mg。 ｜ 给药：预防呕吐；奥沙利铂溶媒用5% GS；深静脉置管，避光"
       },
       {
         name: "XELOX方案（奥沙利铂+卡培他滨）",
