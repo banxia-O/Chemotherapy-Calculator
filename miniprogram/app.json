@@ -8,10 +8,27 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "化疗剂量计算器",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "subPackages": [
+    {
+      "root": "skills",
+      "pages": [],
+      "independent": true
+    }
+  ],
+  "agent": {
+    "skills": [
+      {
+        "name": "dose-calculation",
+        "description": "化疗剂量计算：BSA、mg/m²剂量、卡铂AUC、替吉奥S-1分档",
+        "path": "skills/dose-calculation-skill"
+      }
+    ],
+    "instruction": "AGENTS.md"
+  }
 }

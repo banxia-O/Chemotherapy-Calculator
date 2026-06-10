@@ -1,0 +1,95 @@
+{
+  "apis": [
+    {
+      "name": "calculateBSA",
+      "description": "计算体表面积 BSA。调用前置条件：用户提供了身高 cm 和体重 kg。禁止在缺少身高或体重时调用，禁止猜测参数。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "heightCm": { "type": "number", "description": "身高，单位 cm。取自用户原话；如用户给 m，需换算为 cm；缺失时追问，不要编造。" },
+          "weightKg": { "type": "number", "description": "体重，单位 kg。取自用户原话；缺失时追问，不要编造。" }
+        },
+        "required": ["heightCm", "weightKg"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "heightCm": { "type": "number" },
+          "weightKg": { "type": "number" },
+          "formula": { "type": "string" },
+          "bsa": { "type": "number", "description": "BSA，单位 m²，保留 2 位小数" }
+        }
+      }
+    },
+    {
+      "name": "calculateDoseByBSA",
+      "description": "按 BSA 和标准 mg/m² 剂量计算药物剂量。调用前置条件：已有 BSA 和某药标准剂量。若只有身高体重，应先调用 calculateBSA。禁止模型自行心算。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "drugName": { "type": "string", "description": "药物名称，例如顺铂、紫杉醇、依托泊苷。用户未说可留空。" },
+          "bsa": { "type": "number", "description": "体表面积 m²。必须来自用户明确提供或 calculateBSA 返回值。禁止编造。" },
+          "dosePerM2": { "type": "number", "description": "标准剂量，单位 mg/m² 或 mg/m²/d 的数值部分。必须来自用户原话或明确方案。" },
+          "totalDays": { "type": "number", "description": "连续给药天数。仅当用户/方案明确为多日每日剂量时填写，例如依托泊苷 d1-3 填 3。" }
+        },
+        "required": ["bsa", "dosePerM2"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "drugName": { "type": "string" },
+          "bsa": { "type": "number" },
+          "dosePerM2": { "type": "number" },
+          "doseMg": { "type": "number" },
+          "totalDays": { "type": "number" },
+          "totalDoseMg": { "type": "number" },
+          "formula": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "calculateCarboplatinDose",
+      "description": "计算卡铂剂量。使用 Cockcroft-Gault 估算 GFR/CrCl，并用 Calvert 公式 dose=AUC×(GFR+25)。调用前必须有年龄、性别、体重 kg、血肌酐 μmol/L、目标 AUC。若肌酐单位不明确，必须追问。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "age": { "type": "number", "description": "年龄，岁。取自用户原话，缺失时追问。" },
+          "sex": { "type": "string", "description": "生理性别。仅允许 male/female 或 男/女。取自用户原话，缺失时追问。", "enum": ["male", "female", "男", "女"] },
+          "weightKg": { "type": "number", "description": "体重 kg。取自用户原话，缺失时追问。" },
+          "creatinineUmolL": { "type": "number", "description": "血肌酐，单位 μmol/L。用户给 mg/dL 时需先换算或追问确认；禁止把 mg/dL 直接填入本字段。" },
+          "targetAUC": { "type": "number", "description": "目标 AUC，例如 2、5、6。必须来自用户原话或明确方案，缺失时追问。" }
+        },
+        "required": ["age", "sex", "weightKg", "creatinineUmolL", "targetAUC"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "rawGfr": { "type": "number" },
+          "cappedGfr": { "type": "number" },
+          "gfrCapped": { "type": "boolean" },
+          "doseMg": { "type": "number" },
+          "formula": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "calculateS1Dose",
+      "description": "根据 BSA 计算替吉奥（S-1）常用 bid 分档剂量。调用前置条件：已有 BSA。若只有身高体重，应先调用 calculateBSA。",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "bsa": { "type": "number", "description": "体表面积 m²。必须来自用户明确提供或 calculateBSA 返回值。" }
+        },
+        "required": ["bsa"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "bsa": { "type": "number" },
+          "band": { "type": "string" },
+          "dose": { "type": "string" }
+        }
+      }
+    }
+  ]
+}
