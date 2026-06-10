@@ -61,9 +61,9 @@ function calculateS1DoseValue(bsa) {
   const b = toNumber(bsa)
   if (!b || b <= 0) throw new Error('BSA 必须为正数')
   if (b < 0.2 || b > 3.0) throw new Error('BSA 超出常见范围，请核对输入')
-  if (b < 1.25) return { dose: '40 mg bid', band: 'BSA < 1.25 m²' }
-  if (b <= 1.5) return { dose: '50 mg bid', band: 'BSA 1.25–1.50 m²' }
-  return { dose: '60 mg bid', band: 'BSA > 1.50 m²' }
+  if (b < 1.25) return { dose: '40mg bid', band: 'BSA < 1.25 m²' }
+  if (b <= 1.5) return { dose: '50mg bid', band: 'BSA 1.25–1.50 m²' }
+  return { dose: '60mg bid', band: 'BSA > 1.50 m²' }
 }
 
 module.exports = {
