@@ -1,4 +1,10 @@
 // 通用剂量计算工具：供普通小程序页面使用。
+//
+// ⚠️ 同源副本提醒：BSA / S-1 分档 / 卡铂(Cockcroft-Gault+Calvert) 等公式
+// 在 skills/dose-calculation-skill/utils/calc.js 另有一份。
+// 微信 AI skill 是独立分包，不能跨包 require 主包代码，故刻意保留两份，
+// 而非为了「优雅」强行合一（合一会触发独立分包运行时限制）。
+// 修改任一公式（尤其剂量边界）时，必须同步修改另一份，否则两端结果会漂移。
 
 function toNumber(value) {
   const n = Number(value)
@@ -20,8 +26,9 @@ function calculateBSAValue(heightCm, weightKg) {
 function calculateS1DoseByBSA(bsa) {
   const b = toNumber(bsa)
   if (!b || b <= 0) return null
+  // S-1 分档边界按说明书：BSA<1.25→40；1.25≤BSA<1.5→50；BSA≥1.5→60
   if (b < 1.25) return '40mg bid'
-  if (b <= 1.5) return '50mg bid'
+  if (b < 1.5) return '50mg bid'
   return '60mg bid'
 }
 

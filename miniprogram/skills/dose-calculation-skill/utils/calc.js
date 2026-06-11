@@ -1,3 +1,11 @@
+// AI skill 专用剂量计算工具（独立分包，不可跨包 require 主包代码）。
+//
+// ⚠️ 同源副本提醒：本文件的 BSA / S-1 分档 / 卡铂公式与主包
+// miniprogram/utils/calc.js 是同一套医学公式的两份实现。
+// 二者刻意分开：本文件供微信 AI skill 调用，需抛错+参数校验；
+// 主包那份供页面调用，缺参返回 null。公式本身必须保持一致。
+// 修改任一剂量边界/公式时，务必同步修改另一份，否则两端结果会漂移。
+
 function toNumber(value) {
   const n = Number(value)
   return Number.isFinite(n) ? n : null
@@ -61,9 +69,10 @@ function calculateS1DoseValue(bsa) {
   const b = toNumber(bsa)
   if (!b || b <= 0) throw new Error('BSA 必须为正数')
   if (b < 0.2 || b > 3.0) throw new Error('BSA 超出常见范围，请核对输入')
+  // S-1 分档边界按说明书：BSA<1.25→40；1.25≤BSA<1.5→50；BSA≥1.5→60
   if (b < 1.25) return { dose: '40mg bid', band: 'BSA < 1.25 m²' }
-  if (b <= 1.5) return { dose: '50mg bid', band: 'BSA 1.25–1.50 m²' }
-  return { dose: '60mg bid', band: 'BSA > 1.50 m²' }
+  if (b < 1.5) return { dose: '50mg bid', band: '1.25 ≤ BSA < 1.50 m²' }
+  return { dose: '60mg bid', band: 'BSA ≥ 1.50 m²' }
 }
 
 module.exports = {
